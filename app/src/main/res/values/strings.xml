@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">YaMobDev2018</string>
+
+    <!--Imgur auth-->
+    <string name="imgur_client_id" translatable="false"></string>
+    <string name="imgur_client_secret" translatable="false"></string>
+</resources>
