@@ -47,7 +47,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .into(holder.mImageView);
     }
 
-    // todo: что тут вообще происходит?
     public Cursor swapCursor(Cursor c) {
         if (mCursor == c) {
             return null;

@@ -34,6 +34,7 @@ public class ImageViewActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(url)) {
             Picasso.with(this)
                     .load(url)
+                    .placeholder(R.drawable.download_placeholder)
                     .into(mImage);
         }
     }
