@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "images.db";
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -19,11 +19,13 @@ public class DBHelper extends SQLiteOpenHelper{
                 "CREATE TABLE %s (" +
                         "%s INTEGER PRIMARY KEY, " +
                         "%s TEXT, " +
-                        "%s DATETIME DEFAULT (datetime('now','localtime')));",
+                        "%s DATETIME DEFAULT (datetime('now','localtime')), " +
+                        "%s INTEGER DEFAULT 1);",
                 ImageContract.QueryEntry.TABLE_NAME,
                 ImageContract.QueryEntry._ID,
                 ImageContract.QueryEntry.COLUMN_KEYWORD,
-                ImageContract.QueryEntry.COLUMN_DATE
+                ImageContract.QueryEntry.COLUMN_DATE,
+                ImageContract.QueryEntry.COLUMN_PAGE
         );
 
         final String CREATE_TABLE_IMAGES = String.format(

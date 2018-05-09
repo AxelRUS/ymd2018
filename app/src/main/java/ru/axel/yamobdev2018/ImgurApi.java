@@ -21,6 +21,6 @@ public interface ImgurApi {
     @GET("gallery/search/{sort}/{window}/{page}")
     Call<Gallery> searchGallery(@Path("sort") String sort, @Path("window") String window, @Path("page") Integer page, @Query("q") String query);
 
-    @GET("gallery/{{section}}/{{sort}}/{{window}}/{{page}}")
-    Call<Gallery> getGallery(@Path("section") String section, @Path("sort") String sort, @Path("page") Integer page);
+    @GET("gallery/{section}/{sort}/{window}/{page}")
+    Call<Gallery> getGallery(@Path("section") String section, @Path("sort") String sort, @Path("window") String window, @Path("page") Integer page);
 }

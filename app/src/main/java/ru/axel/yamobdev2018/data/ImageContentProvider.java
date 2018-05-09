@@ -192,6 +192,24 @@ public class ImageContentProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        final SQLiteDatabase db = mDBHelper.getWritableDatabase();
+        int itemUpdated;
+
+        switch (sUriMatcher.match(uri)) {
+            case QUERIES:
+                itemUpdated = db.update(ImageContract.QueryEntry.TABLE_NAME,
+                        values,
+                        selection ,
+                        selectionArgs);
+                break;
+                default:
+                    throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+
+        if (itemUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return itemUpdated;
     }
 }

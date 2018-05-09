@@ -22,6 +22,7 @@ public class ImageContract {
 
         public static final String COLUMN_KEYWORD = "keyword";
         public static final String COLUMN_DATE = "date";
+        public static final String COLUMN_PAGE = "page";
     }
 
     public static final class ImageEntry implements BaseColumns {
