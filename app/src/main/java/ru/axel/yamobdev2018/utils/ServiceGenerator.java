@@ -21,7 +21,7 @@ public class ServiceGenerator {
                     .addConverterFactory(JacksonConverterFactory.create());
 
 
-    private static HttpLoggingInterceptor logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+    private static HttpLoggingInterceptor logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS);
 
     private static OkHttpClient.Builder httpClient =
             new OkHttpClient.Builder()
@@ -35,8 +35,8 @@ public class ServiceGenerator {
                                     .build();
                             return chain.proceed(request);
                         }
-                    })
-                    .addInterceptor(logging);
+                    });
+//                    .addInterceptor(logging);
 
     private static Retrofit sRetrofit = sBuilder
             .client(httpClient.build())
